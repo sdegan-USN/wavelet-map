@@ -246,7 +246,12 @@
   svg.addEventListener('wheel', e => {
     e.preventDefault();
     const p = toMap(e.clientX, e.clientY);
-    zoomAt(e.deltaY > 0 ? 1.25 : 0.8, p.lon, p.lat);
+    // scale by scroll distance, gently: a trackpad sends many small deltas, a mouse wheel a few large ones
+    let dy = e.deltaY;
+    if (e.deltaMode === 1) dy *= 16; else if (e.deltaMode === 2) dy *= 400;
+    dy = Math.max(-40, Math.min(40, dy));
+    const f = Math.exp(dy * (e.ctrlKey ? 0.01 : 0.0025));
+    zoomAt(f, p.lon, p.lat);
   }, { passive: false });
   document.getElementById('zin').addEventListener('click', () => zoomAt(0.7));
   document.getElementById('zout').addEventListener('click', () => zoomAt(1.4));
