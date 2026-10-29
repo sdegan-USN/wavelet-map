@@ -50,8 +50,8 @@ a { color: var(--cyan); }
 .box { fill: rgba(var(--box-g),.07); stroke: rgba(var(--box-g),.6); stroke-width: 1; vector-effect: non-scaling-stroke; cursor: pointer; transition: fill .12s; }
 .box.R { stroke: rgba(var(--box-r),.65); fill: rgba(var(--box-r),.06); }
 .box.dim { stroke-opacity: .12; fill-opacity: 0; pointer-events: none; }
-.box.hover { fill: rgba(var(--box-g),.25); stroke: var(--cyan2); stroke-width: 2; }
-.box.R.hover { fill: rgba(var(--box-r),.25); stroke: var(--amber); }
+.box.hover { fill: rgba(var(--box-g),.3); stroke: var(--cyan2); stroke-width: 3; }
+.box.R.hover { fill: rgba(var(--box-r),.3); stroke: var(--amber); }
 .box.sel { stroke-width: 2.5; stroke: var(--ink); fill: rgba(var(--box-g),.18); }
 .tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font: 12px var(--mono); color: var(--ink); max-width: 320px; }
 .tip small { color: var(--muted); display: block; }
@@ -117,3 +117,15 @@ dialog p { margin: 0 0 10px; }
 .pop-item .hours-label { margin-top: 0; }
 dialog .credit { color: var(--muted); font-size: 13px; }
 .dialog-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 6px; }
+.pop-choose { padding: 6px 0 4px; }
+.pop-choose .hours-label { padding: 2px 12px 0; }
+.pop-row { display: flex; flex-direction: column; gap: 2px; width: 100%; text-align: left; background: none; border: 0; border-top: 1px solid var(--line); color: var(--ink); padding: 9px 12px; cursor: pointer; font-family: var(--sans); }
+.pop-row:hover, .pop-row:focus-visible { background: rgba(var(--box-g),.12); outline: 0; }
+.pop-row .nm { font-size: 14px; font-weight: 600; }
+.pop-row .id { font: italic 12.5px var(--mono); color: var(--cyan); }
+.pop-row .ft { font: 11px var(--mono); color: var(--muted); }
+.pop-detail { padding: 8px 12px 12px; }
+.pop-detail .nm { font-size: 14.5px; font-weight: 600; }
+.pop-detail .id { display: block; font: italic 12.5px var(--mono); color: var(--cyan); margin-bottom: 4px; }
+.pop-back { display: inline-block; font: 12px var(--mono); margin-bottom: 8px; text-decoration: none; }
+.pop .empty { padding: 12px; }

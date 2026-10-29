@@ -216,45 +216,71 @@
   // ---------- popup at the click ----------
   const pop = document.getElementById('pop');
   function closePop() { pop.hidden = true; }
+  function popDetail(a, back) {
+    const d = h('div', 'pop-detail');
+    if (back) { const bk = h('a', 'pop-back', '‹ all ' + back.length + ' areas here'); bk.href = '#'; bk.addEventListener('click', e => { e.preventDefault(); renderPop(back, null); }); d.appendChild(bk); }
+    d.appendChild(h('div', 'nm', a.name));
+    d.appendChild(h('em', 'id', a.id));
+    const kv = h('dl', 'kv');
+    for (const [k, v] of [['Lat', a.lat_text], ['Lon', a.lon_text], ['Res', a.resolution_nm + ' nm'], ['Model', a.model === 'G' ? 'G (global, ESPC-D)' : 'R (regional, COAMPS-NCOM)'], ['Fleet', a.fleets.map(f => f.replace(' Fleet', '')).join(', ')], ['Size', a.size_kb + ' KB']]) {
+      kv.appendChild(h('dt', null, k)); kv.appendChild(h('dd', null, v));
+    }
+    d.appendChild(kv);
+    d.appendChild(h('p', 'hours-label', 'Forecast hours · latest run · FNMOC portal (CAC)'));
+    const hs = h('div', 'hours');
+    for (const t of a.hours) { const l = h('a', null, String(t.tau)); l.href = t.url; l.target = '_blank'; l.rel = 'noopener'; hs.appendChild(l); }
+    d.appendChild(hs);
+    setSelected(a.id);
+    return d;
+  }
+  function popChooser(hits) {
+    const ul = h('div', 'pop-choose');
+    ul.appendChild(h('p', 'hours-label', 'Point to a row to light its box. Click one for its details.'));
+    for (const a of hits) {
+      const row = h('button', 'pop-row'); row.type = 'button';
+      row.appendChild(h('span', 'nm', a.name));
+      row.appendChild(h('em', 'id', a.id));
+      row.appendChild(h('span', 'ft', (a.model === 'G' ? 'Global' : 'Regional') + ' · ' + a.resolution_nm + ' nm · ' + a.lat_text + ' · ' + a.lon_text));
+      row.addEventListener('mouseenter', () => { setHover([a.id]); setSelected(a.id); });
+      row.addEventListener('mouseleave', () => setHover([]));
+      row.addEventListener('click', () => renderPop(hits, a));
+      ul.appendChild(row);
+    }
+    return ul;
+  }
+  let popState = null;
+  function renderPop(hits, chosen) {
+    popState = { hits, chosen };
+    const body = pop.querySelector('.pop-body'); body.innerHTML = '';
+    pop.querySelector('.pop-title').textContent = chosen ? (hits.length > 1 ? 'Area' : '1 area here') : (hits.length ? hits.length + ' areas here' : 'No area here');
+    if (chosen) body.appendChild(popDetail(chosen, hits.length > 1 ? hits : null));
+    else if (hits.length) body.appendChild(popChooser(hits));
+    else body.appendChild(h('p', 'empty', 'No wavelet area covers this point.'));
+  }
   function showPop(cx, cy, lon, lat) {
     const hits = areas.filter(a => visible(a) && contains(a, lon, lat)).sort((x, y) => areaDeg(x) - areaDeg(y));
     pop.innerHTML = '';
     const head = h('div', 'pop-head');
-    head.appendChild(h('span', 'pop-title', hits.length ? hits.length + ' area' + (hits.length === 1 ? '' : 's') + ' here' : 'No area here'));
+    head.appendChild(h('span', 'pop-title', ''));
     head.appendChild(h('span', 'muted', fmt(lat, 'N', 'S') + ' ' + fmt(lon, 'E', 'W')));
     const x = h('button', 'pop-close', '×'); x.type = 'button'; x.setAttribute('aria-label', 'Close');
     x.addEventListener('click', closePop);
     head.appendChild(x);
     pop.appendChild(head);
-    const body = h('div', 'pop-body');
-    hits.forEach((a, i) => {
-      const d = h('details', 'pop-item'); if (i === 0) d.open = true;
-      const sm = h('summary');
-      sm.appendChild(h('span', 'nm', a.name));
-      sm.appendChild(h('em', 'id', a.id));
-      d.appendChild(sm);
-      const kv = h('dl', 'kv');
-      for (const [k, v] of [['Lat', a.lat_text], ['Lon', a.lon_text], ['Res', a.resolution_nm + ' nm'], ['Model', a.model === 'G' ? 'G (global)' : 'R (regional)'], ['Fleet', a.fleets.map(f => f.replace(' Fleet', '')).join(', ')], ['Size', a.size_kb + ' KB']]) {
-        kv.appendChild(h('dt', null, k)); kv.appendChild(h('dd', null, v));
-      }
-      d.appendChild(kv);
-      d.appendChild(h('p', 'hours-label', 'Forecast hours · latest run · FNMOC portal (CAC)'));
-      const hs = h('div', 'hours');
-      for (const t of a.hours) { const l = h('a', null, String(t.tau)); l.href = t.url; l.target = '_blank'; l.rel = 'noopener'; hs.appendChild(l); }
-      d.appendChild(hs);
-      d.addEventListener('toggle', () => { if (d.open) setSelected(a.id); });
-      body.appendChild(d);
-    });
-    pop.appendChild(body);
+    pop.appendChild(h('div', 'pop-body'));
+    renderPop(hits, hits.length === 1 ? hits[0] : null);
     pop.hidden = false;
     try { window.getSelection().removeAllRanges(); } catch (e) {}
     const wr = svg.parentElement.getBoundingClientRect();
     const pw = Math.min(380, wr.width - 24), ph = Math.min(pop.offsetHeight, wr.height - 24);
     pop.style.width = pw + 'px';
     pop.style.maxHeight = (wr.height - 24) + 'px';
-    let left = cx - wr.left + 12, top = cy - wr.top + 12;
-    if (left + pw > wr.width - 12) left = Math.max(12, cx - wr.left - pw - 12);
+    // put the window on the other half of the map from the click so the boxes it names stay in view
+    const px = cx - wr.left, py = cy - wr.top;
+    let left = px < wr.width / 2 ? Math.min(wr.width - pw - 12, px + 140) : Math.max(12, px - pw - 140);
+    let top = py - 40;
     if (top + ph > wr.height - 12) top = Math.max(12, wr.height - ph - 12);
+    if (top < 12) top = 12;
     pop.style.left = left + 'px'; pop.style.top = top + 'px';
   }
 
