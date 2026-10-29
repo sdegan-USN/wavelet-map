@@ -18,6 +18,7 @@
   <div class="controls">
     <input id="search" type="search" placeholder="Search area or short name" autocomplete="off" aria-label="Search areas">
     <div id="fleets" class="chips" role="group" aria-label="Filter by fleet"></div>
+    <button id="theme-btn" class="ghost" type="button" aria-label="Switch day or night colours">Night</button>
     <button id="about-btn" class="ghost" type="button" aria-haspopup="dialog">About</button>
     <a class="ghost" href="https://portal.fnmoc.navy.mil/ocean_products/html/UPS/NOP_sub_support.html" target="_blank" rel="noopener">FNMOC page (CAC)</a>
   </div>
@@ -27,16 +28,22 @@
   <section class="map-wrap" aria-label="Map of wavelet areas">
     <svg id="map" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
       <g id="view">
-        <rect id="ocean" x="-180" y="-90" width="360" height="180"></rect>
-        <path id="land"></path>
-        <g id="grat"></g>
+        <rect id="ocean" x="-540" y="-90" width="1080" height="180"></rect>
+        <g id="world">
+          <path id="land"></path>
+          <g id="grat"></g>
+        </g>
+        <g id="copies"></g>
         <g id="boxes"></g>
-        <g id="hilite"></g>
       </g>
     </svg>
     <div id="tip" class="tip" hidden></div>
     <div id="pop" class="pop" hidden role="dialog" aria-label="Areas at this point"></div>
-    <div class="map-hint" id="hint">Hover a box to name it. Click to list every area under the cursor. Scroll to zoom, drag to pan.</div>
+    <div class="map-hint" id="hint">Hover a box to name it. Click it for the details and links. Scroll to zoom, drag to pan; the map wraps east and west.</div>
+    <div class="legend" aria-label="Legend">
+      <span><i class="sw G"></i>Global model (ESPC-D) cut to the box</span>
+      <span><i class="sw R"></i>Regional model (COAMPS-NCOM) run for the box</span>
+    </div>
     <div class="zoom">
       <button type="button" id="zin" aria-label="Zoom in">+</button>
       <button type="button" id="zout" aria-label="Zoom out">−</button>
@@ -44,10 +51,12 @@
     </div>
   </section>
 
-  <aside class="panel" id="panel" aria-live="polite">
+  <button id="rail-tab" class="rail-tab" type="button" aria-expanded="false" aria-controls="panel">REGIONS</button>
+  <aside class="panel" id="panel" hidden>
     <div class="panel-head">
       <h2 id="panel-title">All areas</h2>
       <span id="panel-sub" class="muted"></span>
+      <button id="rail-close" class="pop-close" type="button" aria-label="Collapse the list">×</button>
     </div>
     <div id="list" class="list"></div>
   </aside>

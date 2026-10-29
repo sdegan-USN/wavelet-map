@@ -16,8 +16,9 @@
 
   let areas = [], fleetFilter = null, query = '', selected = null;
   // viewBox state in map units (lon, -lat)
-  let vb = { x: -180, y: -90, w: 360, h: 180 };
-  const FULL = { x: -180, y: -90, w: 360, h: 180 };
+  const HOME_LON = -60; // centre of the opening view
+  let vb = { x: HOME_LON - 180, y: -90, w: 360, h: 180 };
+  function homeView() { vb = { x: HOME_LON - 0.5, y: -90, w: 1, h: 180 }; applyVB(); }
 
   function el(tag, attrs, parent) {
     const e = document.createElementNS(NS, tag);
@@ -34,19 +35,20 @@
 
   // ---------- projection ----------
   function applyVB() {
-    // Work out the rectangle actually shown (the viewBox widened or heightened to the
-    // screen's aspect), clamp THAT to the world, then store it back.
+    // The rectangle actually shown is the viewBox widened or heightened to the screen's
+    // aspect. Height is pinned to the world (90N..90S fills the screen when zoomed out);
+    // width wraps: the world is drawn three times side by side, so x is kept within
+    // one world of the centre copy.
     const r = svg.getBoundingClientRect();
     const asp = r.width / r.height || 2;
     let w = vb.w, hh = vb.h;
     if (w / hh > asp) hh = w / asp; else w = hh * asp;
-    // never wider than the world plus a small margin; when the shown box is taller than the
-    // world, centre it (letterbox) instead of clamping
-    const MAXW = 380;
-    if (w > MAXW) { hh *= MAXW / w; w = MAXW; }
+    if (hh > 180) { w *= 180 / hh; hh = 180; }
+    if (w > 360) { hh *= 360 / w; w = 360; }
     let x = vb.x + (vb.w - w) / 2, y = vb.y + (vb.h - hh) / 2;
-    x = w >= 360 ? -w / 2 : Math.max(-180, Math.min(180 - w, x));
-    y = hh >= 180 ? -hh / 2 : Math.max(-90, Math.min(90 - hh, y));
+    y = hh >= 180 ? -90 : Math.max(-90, Math.min(90 - hh, y));
+    const cx = x + w / 2;
+    if (cx < -180) x += 360; else if (cx > 180) x -= 360;
     vb = { x, y, w, h: hh };
     svg.setAttribute('viewBox', `${x} ${y} ${w} ${hh}`);
   }
@@ -54,7 +56,8 @@
     const pt = svg.createSVGPoint();
     pt.x = clientX; pt.y = clientY;
     const m = pt.matrixTransform(svg.getScreenCTM().inverse());
-    return { lon: m.x, lat: -m.y };
+    let lon = m.x; while (lon < -180) lon += 360; while (lon >= 180) lon -= 360;
+    return { lon, lat: -m.y, rawLon: m.x };
   }
   function fit(b, pad) {
     pad = pad == null ? 0.25 : pad;
@@ -89,6 +92,7 @@
       for (const poly of polys) for (const ring of poly) d += ringPath(ring);
     }
     landP.setAttribute('d', d);
+    for (const off of [-360, 360]) el('use', { href: '#world', transform: `translate(${off} 0)` }, document.getElementById('copies'));
   }
   function drawGrat() {
     for (let lon = -180; lon <= 180; lon += 30) {
@@ -102,25 +106,19 @@
   }
 
   // ---------- boxes ----------
-  function spans(a) {
-    // returns list of [west,east] segments in -180..180
-    if (a.east >= a.west) return [[a.west, a.east]];
-    return [[a.west, 180], [-180, a.east]];
-  }
-  function areaDeg(a) {
-    let w = a.east - a.west; if (w < 0) w += 360;
-    return w * (a.north - a.south);
-  }
+  function widthDeg(a) { let w = a.east - a.west; if (w < 0) w += 360; return w; }
+  function areaDeg(a) { return widthDeg(a) * (a.north - a.south); }
   function contains(a, lon, lat) {
     if (lat < a.south || lat > a.north) return false;
-    return spans(a).some(s => lon >= s[0] && lon <= s[1]);
+    let d = lon - a.west; while (d < 0) d += 360; while (d >= 360) d -= 360;
+    return d <= widthDeg(a);
   }
   function drawBoxes() {
     boxesG.innerHTML = '';
     for (const a of areas) {
       a.rects = [];
-      for (const s of spans(a)) {
-        const r = el('rect', { x: s[0], y: -a.north, width: s[1] - s[0], height: a.north - a.south, class: 'box ' + a.model }, boxesG);
+      for (const off of [-360, 0, 360]) {
+        const r = el('rect', { x: a.west + off, y: -a.north, width: widthDeg(a), height: a.north - a.south, class: 'box ' + a.model }, boxesG);
         r.dataset.id = a.id;
         a.rects.push(r);
       }
@@ -305,15 +303,28 @@
     if (e.deltaMode === 1) dy *= 16; else if (e.deltaMode === 2) dy *= 400;
     dy = Math.max(-40, Math.min(40, dy));
     const f = Math.exp(dy * (e.ctrlKey ? 0.01 : 0.0025));
-    zoomAt(f, p.lon, p.lat); closePop();
+    zoomAt(f, p.rawLon, p.lat); closePop();
   }, { passive: false });
   document.getElementById('zin').addEventListener('click', () => zoomAt(0.7));
   document.getElementById('zout').addEventListener('click', () => zoomAt(1.4));
-  document.getElementById('zfit').addEventListener('click', () => { vb = { ...FULL }; applyVB(); });
+  document.getElementById('zfit').addEventListener('click', homeView);
   window.addEventListener('resize', applyVB);
 
-  search.addEventListener('input', () => { query = search.value.trim(); refreshDim(); showAll(); });
+  const panel = document.getElementById('panel'), railTab = document.getElementById('rail-tab');
+  function setRail(open) { panel.hidden = !open; railTab.setAttribute('aria-expanded', String(open)); railTab.textContent = open ? 'HIDE' : 'REGIONS'; applyVB(); }
+  railTab.addEventListener('click', () => setRail(panel.hidden));
+  document.getElementById('rail-close').addEventListener('click', () => setRail(false));
+  search.addEventListener('input', () => { query = search.value.trim(); refreshDim(); showAll(); if (query && panel.hidden) setRail(true); });
   document.getElementById('about-btn').addEventListener('click', () => document.getElementById('about').showModal());
+  const themeBtn = document.getElementById('theme-btn');
+  function setTheme(t) {
+    document.documentElement.dataset.theme = t;
+    themeBtn.textContent = t === 'night' ? 'Day' : 'Night';
+    try { localStorage.setItem('wavelet-theme', t); } catch (e) {}
+  }
+  let saved = 'day'; try { saved = localStorage.getItem('wavelet-theme') || 'day'; } catch (e) {}
+  setTheme(saved);
+  themeBtn.addEventListener('click', () => setTheme(document.documentElement.dataset.theme === 'night' ? 'day' : 'night'));
 
   function buildFleets() {
     const fl = [...new Set(areas.flatMap(a => a.fleets))].sort();
@@ -335,7 +346,7 @@
       areas = d.areas;
       document.getElementById('updated').textContent = areas.length + ' areas · links point at the latest run on the portal';
       drawLand(land); drawGrat(); drawBoxes(); buildFleets(); showAll();
-      applyVB();
+      homeView();
       // #<short name> opens that area and zooms to it (shareable link)
       const want = decodeURIComponent(location.hash.slice(1));
       const hit = areas.find(a => a.id === want);
