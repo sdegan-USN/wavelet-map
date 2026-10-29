@@ -19,7 +19,7 @@
   // viewBox state in map units (lon, -lat)
   const HOME_LON = -60; // centre of the opening view
   let vb = { x: HOME_LON - 180, y: -90, w: 360, h: 180 };
-  function homeView() { vb = { x: HOME_LON - 180, y: -0.5, w: 360, h: 1 }; applyVB(); }
+  function homeView() { vb = { x: HOME_LON - 0.5, y: -90, w: 1, h: 180 }; applyVB(); }
 
   function el(tag, attrs, parent) {
     const e = document.createElementNS(NS, tag);
@@ -44,11 +44,10 @@
     const asp = r.width / r.height || 2;
     let w = vb.w, hh = vb.h;
     if (w / hh > asp) hh = w / asp; else w = hh * asp;
-    // Zoomed all the way out, the whole world (360 wide) fits the screen; on a wide
-    // screen that leaves a band above and below the map, with the world centred.
+    if (hh > 180) { w *= 180 / hh; hh = 180; }
     if (w > 360) { hh *= 360 / w; w = 360; }
     let x = vb.x + (vb.w - w) / 2, y = vb.y + (vb.h - hh) / 2;
-    y = hh >= 180 ? -hh / 2 : Math.max(-90, Math.min(90 - hh, y));
+    y = hh >= 180 ? -90 : Math.max(-90, Math.min(90 - hh, y));
     const cx = x + w / 2;
     if (cx < -180) x += 360; else if (cx > 180) x -= 360;
     vb = { x, y, w, h: hh };
