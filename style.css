@@ -28,7 +28,7 @@ a { color: var(--cyan); }
 #ocean { fill: var(--ocean); }
 #land { fill: var(--land); stroke: #2b4658; stroke-width: 0.08; vector-effect: non-scaling-stroke; }
 #grat line { stroke: #10202c; stroke-width: 0.5; vector-effect: non-scaling-stroke; }
-#grat text { fill: var(--dim); font: 9px var(--mono); }
+#grat text { fill: var(--dim); font-family: var(--mono); }
 .box { fill: rgba(41,212,227,.06); stroke: rgba(41,212,227,.55); stroke-width: 1; vector-effect: non-scaling-stroke; cursor: pointer; transition: fill .12s; }
 .box.R { stroke: rgba(242,181,68,.6); fill: rgba(242,181,68,.05); }
 .box.dim { stroke-opacity: .12; fill-opacity: 0; pointer-events: none; }

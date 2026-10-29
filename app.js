@@ -83,11 +83,11 @@
   function drawGrat() {
     for (let lon = -180; lon <= 180; lon += 30) {
       el('line', { x1: lon, y1: -90, x2: lon, y2: 90 }, gratG);
-      if (lon > -180 && lon < 180) el('text', { x: lon + 0.5, y: 89, 'font-size': 2.2 }, gratG).textContent = lon < 0 ? (-lon) + 'W' : lon ? lon + 'E' : '0';
+      if (lon > -180 && lon < 180) el('text', { x: lon + 0.5, y: 89, 'font-size': 2.6 }, gratG).textContent = lon < 0 ? (-lon) + 'W' : lon ? lon + 'E' : '0';
     }
     for (let lat = -60; lat <= 60; lat += 30) {
       el('line', { x1: -180, y1: -lat, x2: 180, y2: -lat }, gratG);
-      el('text', { x: -179, y: -lat - 0.5, 'font-size': 2.2 }, gratG).textContent = lat < 0 ? (-lat) + 'S' : lat ? lat + 'N' : 'EQ';
+      el('text', { x: -179, y: -lat - 0.5, 'font-size': 2.6 }, gratG).textContent = lat < 0 ? (-lat) + 'S' : lat ? lat + 'N' : 'EQ';
     }
   }
 
