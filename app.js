@@ -151,7 +151,6 @@
     meta.appendChild(h('span', 'tag ' + a.model, a.model === 'G' ? 'Global' : 'Regional'));
     meta.appendChild(h('span', null, a.resolution_nm + ' nm'));
     meta.appendChild(h('span', null, a.fleets.map(f => f.replace(' Fleet', '')).join(', ') + ' Fleet'));
-    if (a.verified) { const ok = h('span', 'ok', '✓ links verified'); ok.title = 'Checked ' + a.verified; meta.appendChild(ok); }
     s.appendChild(meta);
     d.appendChild(s);
     const body = h('div', 'body');
@@ -279,8 +278,7 @@
   Promise.all([fetch('data/areas.json').then(r => r.json()), fetch('data/land.geojson').then(r => r.json())])
     .then(([d, land]) => {
       areas = d.areas;
-      document.getElementById('updated').textContent = areas.length + ' areas · links verified ' + (areas.find(a => a.verified) || {}).verified;
-      document.getElementById('updated').title = d.verified_note || '';
+      document.getElementById('updated').textContent = areas.length + ' areas · links point at the latest run on the portal';
       drawLand(land); drawGrat(); drawBoxes(); buildFleets(); showAll();
       applyVB();
       // #<short name> opens that area and zooms to it (shareable link)
