@@ -131,3 +131,8 @@ dialog .credit { color: var(--muted); font-size: 13px; }
 .pop .empty { padding: 12px; }
 .pop-more { display: block; width: 100%; margin-top: 12px; background: rgba(var(--box-g),.08); border: 1px solid var(--line); color: var(--cyan); border-radius: 8px; padding: 8px 10px; font: 13px var(--sans); cursor: pointer; text-align: left; }
 .pop-more:hover { border-color: var(--cyan); background: rgba(var(--box-g),.14); }
+.fleet { fill: none; stroke: var(--fleet); stroke-width: 1.2; stroke-dasharray: 6 4; vector-effect: non-scaling-stroke; pointer-events: none; opacity: .7; }
+.fleet-label { fill: var(--fleet); font-family: var(--mono); font-weight: 600; opacity: .75; pointer-events: none; letter-spacing: .05em; }
+.sw.F { border: 1.5px dashed var(--fleet); background: none; }
+:root[data-theme="day"] { --fleet: #2b5fa8; }
+:root, :root[data-theme="night"] { --fleet: #4f8fe0; }

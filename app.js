@@ -97,12 +97,44 @@
   function drawGrat() {
     for (let lon = -180; lon <= 180; lon += 30) {
       el('line', { x1: lon, y1: -90, x2: lon, y2: 90 }, gratG);
-      if (lon > -180 && lon < 180) el('text', { x: lon + 0.5, y: 89, 'font-size': 2.6 }, gratG).textContent = lon < 0 ? (-lon) + 'W' : lon ? lon + 'E' : '0';
+      if (lon > -180 && lon < 180) el('text', { x: lon + 0.5, y: 89, 'font-size': 1.7 }, gratG).textContent = lon < 0 ? (-lon) + 'W' : lon ? lon + 'E' : '0';
     }
     for (let lat = -60; lat <= 60; lat += 30) {
       el('line', { x1: -180, y1: -lat, x2: 180, y2: -lat }, gratG);
-      el('text', { x: -179, y: -lat - 0.5, 'font-size': 2.6 }, gratG).textContent = lat < 0 ? (-lat) + 'S' : lat ? lat + 'N' : 'EQ';
+      el('text', { x: -179, y: -lat - 0.5, 'font-size': 1.7 }, gratG).textContent = lat < 0 ? (-lat) + 'S' : lat ? lat + 'N' : 'EQ';
     }
+  }
+
+  // ---------- fleet areas (approximate) ----------
+  function drawFleets(fl) {
+    const g = document.getElementById('fleets-g');
+    g.innerHTML = '';
+    for (const off of [-360, 0, 360]) {
+      for (const f of fl.fleets) {
+        const d = f.polygon.map((p, i) => (i ? 'L' : 'M') + (p[0] + off) + ' ' + (-p[1])).join('') + 'Z';
+        el('path', { d, class: 'fleet' }, g);
+        const t = el('text', { x: f.label[0] + off, y: -f.label[1], class: 'fleet-label', 'font-size': 4 }, g);
+        t.textContent = f.id;
+      }
+    }
+  }
+  function fitFleet(name) {
+    const sel = areas.filter(a => a.fleets.includes(name));
+    if (!sel.length) return;
+    // bounding box in two framings (west-east, and shifted by 360 for the Pacific), keep the narrower
+    const best = [0, 360].map(sh => {
+      let w = Infinity, e = -Infinity, so = Infinity, no = -Infinity;
+      for (const a of sel) {
+        let x0 = a.west, x1 = a.west + widthDeg(a);
+        if (sh && x0 < 0) { x0 += 360; x1 += 360; }
+        w = Math.min(w, x0); e = Math.max(e, x1); so = Math.min(so, a.south); no = Math.max(no, a.north);
+      }
+      return { west: w, east: e, south: so, north: no, span: e - w };
+    }).sort((p, q) => p.span - q.span)[0];
+    let cx = (best.west + best.east) / 2; if (cx > 180) cx -= 360;
+    const w = best.span, hh = best.north - best.south;
+    vb = { x: cx - w / 2 - w * 0.08, y: -best.north - hh * 0.08, w: w * 1.16, h: hh * 1.16 };
+    applyVB(); closePop();
   }
 
   // ---------- boxes ----------
@@ -366,6 +398,7 @@
       b.addEventListener('click', () => {
         fleetFilter = val; [...fleetsEl.children].forEach(c => c.classList.toggle('on', c === b));
         refreshDim(); showAll();
+        if (val) fitFleet(val); else homeView();
       });
       return b;
     };
@@ -374,9 +407,10 @@
   }
 
   // ---------- load ----------
-  Promise.all([fetch('data/areas.json').then(r => r.json()), fetch('data/land.geojson').then(r => r.json())])
-    .then(([d, land]) => {
+  Promise.all([fetch('data/areas.json').then(r => r.json()), fetch('data/land.geojson').then(r => r.json()), fetch('data/fleets.json').then(r => r.json())])
+    .then(([d, land, fl]) => {
       areas = d.areas;
+      drawFleets(fl);
       document.getElementById('updated').textContent = areas.length + ' areas · links point at the latest run on the portal';
       drawLand(land); drawGrat(); drawBoxes(); buildFleets(); showAll();
       homeView();

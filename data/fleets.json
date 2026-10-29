@@ -1,0 +1,11 @@
+{
+ "note": "Approximate, unofficial numbered-fleet areas for orientation only. The Navy publishes most fleet areas as prose, not lines. Lines that are published are used: the International Date Line between 3rd and 7th Fleet, and 68E (the India/Pakistan border meridian from the 2013 7th Fleet fact sheet) between 7th and 5th Fleet. Every other edge is a conventional placement.",
+ "fleets": [
+  {"id": "2F", "name": "2nd Fleet", "polygon": [[-100, 15], [-30, 15], [-30, 85], [-100, 85]], "label": [-60, 45]},
+  {"id": "3F", "name": "3rd Fleet", "polygon": [[-180, 0], [-100, 0], [-100, 15], [-115, 15], [-115, 66], [-180, 66]], "label": [-150, 30]},
+  {"id": "4F", "name": "4th Fleet", "polygon": [[-100, -60], [-30, -60], [-30, 15], [-100, 15]], "label": [-60, -25]},
+  {"id": "5F", "name": "5th Fleet", "polygon": [[32, -5], [68, -5], [68, 32], [32, 32]], "label": [55, 8]},
+  {"id": "6F", "name": "6th Fleet", "polygon": [[-30, -60], [32, -60], [32, -5], [68, -5], [68, 32], [40, 32], [40, 85], [-30, 85]], "label": [-5, 45]},
+  {"id": "7F", "name": "7th Fleet", "polygon": [[68, -60], [180, -60], [180, 66], [68, 66]], "label": [130, -10]}
+ ]
+}
