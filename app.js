@@ -435,6 +435,8 @@
       const want = decodeURIComponent(location.hash.slice(1));
       const hit = areas.find(a => a.id === want);
       if (hit) { hit.item.open = true; hit.item.scrollIntoView(); fit(hit, 1.5); }
+      // drop the hash so a plain reload comes back to the whole world
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     })
     .catch(err => { list.appendChild(h('div', 'empty', 'Could not load the area list: ' + err)); });
 })();
