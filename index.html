@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#02070c">
+<meta name="description" content="A map of the FNMOC NOSSP wavelet areas: hover a box to see which area it is, click it for the lat/lon, resolution and the forecast-hour download links.">
+<title>Wavelet Map · sean.theinformed.org</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 42'%3E%3Crect width='42' height='42' rx='9' fill='%2302070c'/%3E%3Crect x='9' y='12' width='24' height='16' fill='none' stroke='%2329d4e3' stroke-width='2.6'/%3E%3C/svg%3E">
+</head>
+<body>
+<header class="bar">
+  <div class="brand">
+    <span class="kicker">INFORMATION WARFARE · OCEANOGRAPHY</span>
+    <h1>Wavelet Map</h1>
+  </div>
+  <div class="controls">
+    <input id="search" type="search" placeholder="Search area or short name" autocomplete="off" aria-label="Search areas">
+    <div id="fleets" class="chips" role="group" aria-label="Filter by fleet"></div>
+    <button id="about-btn" class="ghost" type="button" aria-haspopup="dialog">About</button>
+    <a class="ghost" href="https://portal.fnmoc.navy.mil/ocean_products/html/UPS/NOP_sub_support.html" target="_blank" rel="noopener">FNMOC page (CAC)</a>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="map-wrap" aria-label="Map of wavelet areas">
+    <svg id="map" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <g id="view">
+        <rect id="ocean" x="-180" y="-90" width="360" height="180"></rect>
+        <path id="land"></path>
+        <g id="grat"></g>
+        <g id="boxes"></g>
+        <g id="hilite"></g>
+      </g>
+    </svg>
+    <div id="tip" class="tip" hidden></div>
+    <div class="map-hint" id="hint">Hover a box to name it. Click to list every area under the cursor. Scroll to zoom, drag to pan.</div>
+    <div class="zoom">
+      <button type="button" id="zin" aria-label="Zoom in">+</button>
+      <button type="button" id="zout" aria-label="Zoom out">−</button>
+      <button type="button" id="zfit" aria-label="Fit all">⤢</button>
+    </div>
+  </section>
+
+  <aside class="panel" id="panel" aria-live="polite">
+    <div class="panel-head">
+      <h2 id="panel-title">All areas</h2>
+      <span id="panel-sub" class="muted"></span>
+    </div>
+    <div id="list" class="list"></div>
+  </aside>
+</main>
+
+<footer class="foot">
+  <span id="updated"></span>
+  <span>Downloads open on the FNMOC portal and need a CAC.</span>
+</footer>
+
+<dialog id="about">
+  <h2>About this page</h2>
+  <p>Made by LT Sean Egan and AG1 Derek Conklin for our OCEANO and AG teammates.</p>
+  <p>The FNMOC Sub Support page lists each NOSSP wavelet area by name with its corners in latitude and longitude, and nothing shows where those corners fall. This page draws every area as a box on a map. Hover a box to name it, click it to see the lat/lon, resolution and model, and the forecast-hour links that download the wavelet straight from the portal.</p>
+  <p>The area list is a snapshot of the FNMOC page. Boxes and links change rarely; the date and hours on the portal are the ones that count. Source and a refresh script: <a href="https://github.com/sdegan-USN/wavelet-map" target="_blank" rel="noopener">github.com/sdegan-USN/wavelet-map</a>.</p>
+  <p class="muted">Coastlines from Natural Earth (public domain). This is an independent tool built on our own time, not an official product of any government body.</p>
+  <form method="dialog"><button type="submit">Close</button></form>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
