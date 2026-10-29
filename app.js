@@ -427,7 +427,6 @@
     .then(([d, land, fl]) => {
       areas = d.areas;
       drawFleets(fl);
-      document.getElementById('updated').textContent = areas.length + ' areas · links point at the latest run on the portal';
       drawLand(land); drawGrat(); drawBoxes(); buildFleets(); showAll();
       homeView();
       // #<short name> opens that area and zooms to it (shareable link)

@@ -86,7 +86,6 @@ a { color: var(--cyan); }
 .body .zoomto { margin-top: 10px; display: inline-block; }
 .empty { padding: 20px 16px; color: var(--muted); font-size: 14px; }
 
-.foot { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 8px 16px; border-top: 1px solid var(--line); font: 12px var(--mono); color: var(--dim); }
 
 dialog { background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 12px; max-width: 560px; padding: 20px 24px; line-height: 1.5; }
 dialog::backdrop { background: rgba(0,0,0,.6); }
