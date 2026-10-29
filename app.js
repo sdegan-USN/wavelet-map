@@ -218,7 +218,6 @@
   function closePop() { pop.hidden = true; }
   function popDetail(a, back) {
     const d = h('div', 'pop-detail');
-    if (back) { const bk = h('a', 'pop-back', '‹ all ' + back.length + ' areas here'); bk.href = '#'; bk.addEventListener('click', e => { e.preventDefault(); renderPop(back, null); }); d.appendChild(bk); }
     d.appendChild(h('div', 'nm', a.name));
     d.appendChild(h('em', 'id', a.id));
     const kv = h('dl', 'kv');
@@ -230,12 +229,18 @@
     const hs = h('div', 'hours');
     for (const t of a.hours) { const l = h('a', null, String(t.tau)); l.href = t.url; l.target = '_blank'; l.rel = 'noopener'; hs.appendChild(l); }
     d.appendChild(hs);
+    if (back && back.length > 1) {
+      const more = h('button', 'pop-more', (back.length - 1) + ' more ' + (back.length === 2 ? 'box covers' : 'boxes cover') + ' this spot…');
+      more.type = 'button';
+      more.addEventListener('click', () => renderPop(back, null));
+      d.appendChild(more);
+    }
     setSelected(a.id);
     return d;
   }
   function popChooser(hits) {
     const ul = h('div', 'pop-choose');
-    ul.appendChild(h('p', 'hours-label', 'Point to a row to light its box. Click one for its details.'));
+    ul.appendChild(h('p', 'hours-label', 'Point to a row to light its box on the map. Click one for its details.'));
     for (const a of hits) {
       const row = h('button', 'pop-row'); row.type = 'button';
       row.appendChild(h('span', 'nm', a.name));
@@ -252,7 +257,7 @@
   function renderPop(hits, chosen) {
     popState = { hits, chosen };
     const body = pop.querySelector('.pop-body'); body.innerHTML = '';
-    pop.querySelector('.pop-title').textContent = chosen ? (hits.length > 1 ? 'Area' : '1 area here') : (hits.length ? hits.length + ' areas here' : 'No area here');
+    pop.querySelector('.pop-title').textContent = chosen ? 'Wavelet area' : (hits.length ? hits.length + ' boxes cover this spot' : 'No area here');
     if (chosen) body.appendChild(popDetail(chosen, hits.length > 1 ? hits : null));
     else if (hits.length) body.appendChild(popChooser(hits));
     else body.appendChild(h('p', 'empty', 'No wavelet area covers this point.'));
@@ -268,7 +273,7 @@
     head.appendChild(x);
     pop.appendChild(head);
     pop.appendChild(h('div', 'pop-body'));
-    renderPop(hits, hits.length === 1 ? hits[0] : null);
+    renderPop(hits, hits[0] || null);
     pop.hidden = false;
     try { window.getSelection().removeAllRanges(); } catch (e) {}
     const wr = svg.parentElement.getBoundingClientRect();
