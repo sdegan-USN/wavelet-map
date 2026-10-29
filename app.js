@@ -33,20 +33,22 @@
   }
 
   // ---------- projection ----------
-  function clampVB() {
-    // keep the world on screen: never wider than the map, never panned past its edges
-    if (vb.w > 360) { vb.h *= 360 / vb.w; vb.w = 360; }
-    if (vb.h > 180) { vb.w *= 180 / vb.h; vb.h = 180; }
-    vb.x = Math.max(-180, Math.min(180 - vb.w, vb.x));
-    vb.y = Math.max(-90, Math.min(90 - vb.h, vb.y));
-  }
   function applyVB() {
-    clampVB();
+    // Work out the rectangle actually shown (the viewBox widened or heightened to the
+    // screen's aspect), clamp THAT to the world, then store it back.
     const r = svg.getBoundingClientRect();
-    const asp = r.width / r.height;
+    const asp = r.width / r.height || 2;
     let w = vb.w, hh = vb.h;
     if (w / hh > asp) hh = w / asp; else w = hh * asp;
-    svg.setAttribute('viewBox', `${vb.x + (vb.w - w) / 2} ${vb.y + (vb.h - hh) / 2} ${w} ${hh}`);
+    // never wider than the world plus a small margin; when the shown box is taller than the
+    // world, centre it (letterbox) instead of clamping
+    const MAXW = 380;
+    if (w > MAXW) { hh *= MAXW / w; w = MAXW; }
+    let x = vb.x + (vb.w - w) / 2, y = vb.y + (vb.h - hh) / 2;
+    x = w >= 360 ? -w / 2 : Math.max(-180, Math.min(180 - w, x));
+    y = hh >= 180 ? -hh / 2 : Math.max(-90, Math.min(90 - hh, y));
+    vb = { x, y, w, h: hh };
+    svg.setAttribute('viewBox', `${x} ${y} ${w} ${hh}`);
   }
   function toMap(clientX, clientY) {
     const pt = svg.createSVGPoint();
@@ -64,7 +66,7 @@
     applyVB();
   }
   function zoomAt(f, lon, lat) {
-    const nw = Math.min(360, Math.max(0.3, vb.w * f)), nh = vb.h * (nw / vb.w);
+    const nw = Math.max(0.3, vb.w * f), nh = vb.h * (nw / vb.w);
     const cx = lon == null ? vb.x + vb.w / 2 : lon, cy = lat == null ? vb.y + vb.h / 2 : -lat;
     vb = { x: cx - (cx - vb.x) * (nw / vb.w), y: cy - (cy - vb.y) * (nh / vb.h), w: nw, h: nh };
     applyVB();
@@ -213,10 +215,54 @@
     if (hits.length) setSelected(hits[0].id);
   }
 
+  // ---------- popup at the click ----------
+  const pop = document.getElementById('pop');
+  function closePop() { pop.hidden = true; }
+  function showPop(cx, cy, lon, lat) {
+    const hits = areas.filter(a => visible(a) && contains(a, lon, lat)).sort((x, y) => areaDeg(x) - areaDeg(y));
+    pop.innerHTML = '';
+    const head = h('div', 'pop-head');
+    head.appendChild(h('span', 'pop-title', hits.length ? hits.length + ' area' + (hits.length === 1 ? '' : 's') + ' here' : 'No area here'));
+    head.appendChild(h('span', 'muted', fmt(lat, 'N', 'S') + ' ' + fmt(lon, 'E', 'W')));
+    const x = h('button', 'pop-close', '×'); x.type = 'button'; x.setAttribute('aria-label', 'Close');
+    x.addEventListener('click', closePop);
+    head.appendChild(x);
+    pop.appendChild(head);
+    const body = h('div', 'pop-body');
+    hits.forEach((a, i) => {
+      const d = h('details', 'pop-item'); if (i === 0) d.open = true;
+      const sm = h('summary');
+      sm.appendChild(h('span', 'nm', a.name));
+      sm.appendChild(h('em', 'id', a.id));
+      d.appendChild(sm);
+      const kv = h('dl', 'kv');
+      for (const [k, v] of [['Lat', a.lat_text], ['Lon', a.lon_text], ['Res', a.resolution_nm + ' nm'], ['Model', a.model === 'G' ? 'G (global)' : 'R (regional)'], ['Fleet', a.fleets.map(f => f.replace(' Fleet', '')).join(', ')], ['Size', a.size_kb + ' KB']]) {
+        kv.appendChild(h('dt', null, k)); kv.appendChild(h('dd', null, v));
+      }
+      d.appendChild(kv);
+      d.appendChild(h('p', 'hours-label', 'Forecast hours · latest run · FNMOC portal (CAC)'));
+      const hs = h('div', 'hours');
+      for (const t of a.hours) { const l = h('a', null, String(t.tau)); l.href = t.url; l.target = '_blank'; l.rel = 'noopener'; hs.appendChild(l); }
+      d.appendChild(hs);
+      d.addEventListener('toggle', () => { if (d.open) setSelected(a.id); });
+      body.appendChild(d);
+    });
+    pop.appendChild(body);
+    pop.hidden = false;
+    const wr = svg.parentElement.getBoundingClientRect();
+    const pw = Math.min(380, wr.width - 24), ph = Math.min(pop.offsetHeight, wr.height - 24);
+    pop.style.width = pw + 'px';
+    pop.style.maxHeight = (wr.height - 24) + 'px';
+    let left = cx - wr.left + 12, top = cy - wr.top + 12;
+    if (left + pw > wr.width - 12) left = Math.max(12, cx - wr.left - pw - 12);
+    if (top + ph > wr.height - 12) top = Math.max(12, wr.height - ph - 12);
+    pop.style.left = left + 'px'; pop.style.top = top + 'px';
+  }
+
   // ---------- interaction ----------
   let drag = null, moved = false;
   svg.addEventListener('pointerdown', e => {
-    drag = { x: e.clientX, y: e.clientY, vb: { ...vb } }; moved = false;
+    drag = { x: e.clientX, y: e.clientY, vb: { ...vb } }; moved = false; tip.hidden = true;
     svg.setPointerCapture(e.pointerId);
   });
   svg.addEventListener('pointermove', e => {
@@ -225,9 +271,10 @@
       const vbw = parseFloat(svg.getAttribute('viewBox').split(' ')[2]);
       const scale = vbw / r.width;
       const dx = (e.clientX - drag.x) * scale, dy = (e.clientY - drag.y) * scale;
-      if (Math.abs(dx) + Math.abs(dy) > 0.01) moved = true;
+      if (!moved && Math.abs(e.clientX - drag.x) + Math.abs(e.clientY - drag.y) <= 5) return;
+      if (Math.abs(e.clientX - drag.x) + Math.abs(e.clientY - drag.y) > 5) moved = true;
       vb = { ...drag.vb, x: drag.vb.x - dx, y: drag.vb.y - dy };
-      applyVB();
+      applyVB(); closePop();
       return;
     }
     const p = toMap(e.clientX, e.clientY);
@@ -246,7 +293,7 @@
     } else { setHover([]); tip.hidden = true; }
   });
   svg.addEventListener('pointerup', e => {
-    if (drag && !moved) { const p = toMap(e.clientX, e.clientY); showAt(p.lon, p.lat); }
+    if (drag && !moved) { const p = toMap(e.clientX, e.clientY); showAt(p.lon, p.lat); showPop(e.clientX, e.clientY, p.lon, p.lat); }
     drag = null;
   });
   svg.addEventListener('pointerleave', () => { setHover([]); tip.hidden = true; });
@@ -258,7 +305,7 @@
     if (e.deltaMode === 1) dy *= 16; else if (e.deltaMode === 2) dy *= 400;
     dy = Math.max(-40, Math.min(40, dy));
     const f = Math.exp(dy * (e.ctrlKey ? 0.01 : 0.0025));
-    zoomAt(f, p.lon, p.lat);
+    zoomAt(f, p.lon, p.lat); closePop();
   }, { passive: false });
   document.getElementById('zin').addEventListener('click', () => zoomAt(0.7));
   document.getElementById('zout').addEventListener('click', () => zoomAt(1.4));
