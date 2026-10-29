@@ -33,7 +33,15 @@
   }
 
   // ---------- projection ----------
+  function clampVB() {
+    // keep the world on screen: never wider than the map, never panned past its edges
+    if (vb.w > 360) { vb.h *= 360 / vb.w; vb.w = 360; }
+    if (vb.h > 180) { vb.w *= 180 / vb.h; vb.h = 180; }
+    vb.x = Math.max(-180, Math.min(180 - vb.w, vb.x));
+    vb.y = Math.max(-90, Math.min(90 - vb.h, vb.y));
+  }
   function applyVB() {
+    clampVB();
     const r = svg.getBoundingClientRect();
     const asp = r.width / r.height;
     let w = vb.w, hh = vb.h;
