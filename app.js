@@ -219,7 +219,7 @@
     d.appendChild(body);
     d.addEventListener('mouseenter', () => setHover([a.id]));
     d.addEventListener('mouseleave', () => setHover([]));
-    d.addEventListener('toggle', () => { if (d.open) { setSelected(a.id); history.replaceState(null, '', '#' + a.id); } });
+    d.addEventListener('toggle', () => { if (d.open) setSelected(a.id); });
     a.item = d;
     return d;
   }
