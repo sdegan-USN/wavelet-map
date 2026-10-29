@@ -247,6 +247,7 @@
     });
     pop.appendChild(body);
     pop.hidden = false;
+    try { window.getSelection().removeAllRanges(); } catch (e) {}
     const wr = svg.parentElement.getBoundingClientRect();
     const pw = Math.min(380, wr.width - 24), ph = Math.min(pop.offsetHeight, wr.height - 24);
     pop.style.width = pw + 'px';
@@ -260,6 +261,7 @@
   // ---------- interaction ----------
   let drag = null, moved = false;
   svg.addEventListener('pointerdown', e => {
+    e.preventDefault(); // no text selection starts from a map drag
     drag = { x: e.clientX, y: e.clientY, vb: { ...vb } }; moved = false; tip.hidden = true;
     svg.setPointerCapture(e.pointerId);
   });

@@ -42,7 +42,7 @@ a { color: var(--cyan); }
 .sw { display: inline-block; width: 16px; height: 10px; border: 1.5px solid rgb(var(--box-g)); background: rgba(var(--box-g),.2); }
 .sw.R { border-color: rgb(var(--box-r)); background: rgba(var(--box-r),.2); }
 .map-wrap { position: relative; background: var(--ocean); min-height: 420px; overflow: hidden; }
-#map { width: 100%; height: 100%; display: block; cursor: crosshair; touch-action: none; }
+#map { width: 100%; height: 100%; display: block; cursor: crosshair; touch-action: none; user-select: none; -webkit-user-select: none; }
 #ocean { fill: var(--ocean); }
 #land { fill: var(--land); stroke: var(--coast); stroke-width: 0.8; vector-effect: non-scaling-stroke; }
 #grat line { stroke: var(--grat); stroke-width: 0.5; vector-effect: non-scaling-stroke; }
