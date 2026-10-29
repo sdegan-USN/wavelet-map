@@ -146,8 +146,13 @@
     if (open) d.open = true;
     const s = h('summary');
     s.appendChild(h('span', 'nm', a.name));
-    s.appendChild(h('span', 'id', a.id));
-    s.appendChild(h('span', 'ft', a.fleets.join(' · ') + ' · ' + (a.model === 'G' ? 'global' : 'regional') + ' · ' + a.resolution_nm + ' nm'));
+    s.appendChild(h('em', 'id', a.id));
+    const meta = h('span', 'ft');
+    meta.appendChild(h('span', 'tag ' + a.model, a.model === 'G' ? 'Global' : 'Regional'));
+    meta.appendChild(h('span', null, a.resolution_nm + ' nm'));
+    meta.appendChild(h('span', null, a.fleets.map(f => f.replace(' Fleet', '')).join(', ') + ' Fleet'));
+    if (a.verified) { const ok = h('span', 'ok', '✓ links verified'); ok.title = 'Checked ' + a.verified; meta.appendChild(ok); }
+    s.appendChild(meta);
     d.appendChild(s);
     const body = h('div', 'body');
     const kv = h('dl', 'kv');
@@ -155,10 +160,10 @@
       ['Latitude', a.lat_text], ['Longitude', a.lon_text],
       ['Resolution', a.resolution_nm + ' nm (lat/lon)'],
       ['Model type', a.model === 'G' ? 'G (global)' : 'R (regional)'],
-      ['Size', a.size_kb + ' KB'], ['Date', a.date]];
+      ['Size', a.size_kb + ' KB']];
     for (const [k, v] of rows) { kv.appendChild(h('dt', null, k)); kv.appendChild(h('dd', null, v)); }
     body.appendChild(kv);
-    body.appendChild(h('p', 'hours-label', 'Forecast hours (download from FNMOC, CAC):'));
+    body.appendChild(h('p', 'hours-label', 'Forecast hours · latest run · opens on the FNMOC portal (CAC)'));
     const hs = h('div', 'hours');
     for (const t of a.hours) {
       const l = h('a', null, String(t.tau));
@@ -173,7 +178,7 @@
     d.appendChild(body);
     d.addEventListener('mouseenter', () => setHover([a.id]));
     d.addEventListener('mouseleave', () => setHover([]));
-    d.addEventListener('toggle', () => { if (d.open) setSelected(a.id); });
+    d.addEventListener('toggle', () => { if (d.open) { setSelected(a.id); history.replaceState(null, '', '#' + a.id); } });
     a.item = d;
     return d;
   }
@@ -269,9 +274,14 @@
   Promise.all([fetch('data/areas.json').then(r => r.json()), fetch('data/land.geojson').then(r => r.json())])
     .then(([d, land]) => {
       areas = d.areas;
-      document.getElementById('updated').textContent = 'FNMOC list snapshot: ' + d.updated + ' · ' + areas.length + ' areas';
+      document.getElementById('updated').textContent = areas.length + ' areas · links verified ' + (areas.find(a => a.verified) || {}).verified;
+      document.getElementById('updated').title = d.verified_note || '';
       drawLand(land); drawGrat(); drawBoxes(); buildFleets(); showAll();
       applyVB();
+      // #<short name> opens that area and zooms to it (shareable link)
+      const want = decodeURIComponent(location.hash.slice(1));
+      const hit = areas.find(a => a.id === want);
+      if (hit) { hit.item.open = true; hit.item.scrollIntoView(); fit(hit, 1.5); }
     })
     .catch(err => { list.appendChild(h('div', 'empty', 'Could not load the area list: ' + err)); });
 })();

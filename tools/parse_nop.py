@@ -53,7 +53,7 @@ def main(path):
             "south": parse_coord(lat[0], "S"), "north": parse_coord(lat[1], "S"),
             "west": parse_coord(lon[0], "W"), "east": parse_coord(lon[1], "W"),
             "lat_text": text(cells[4]), "lon_text": text(cells[5]),
-            "date": text(cells[6]), "hours": hours,
+            "hours": hours,
         }
         if aid in seen:
             if fleet not in seen[aid]["fleets"]:

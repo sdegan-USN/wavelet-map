@@ -24,7 +24,7 @@ fetches `data/areas.json`; serve it.
 
 ## Refresh the area list
 
-The list is a snapshot of the FNMOC page. To update it:
+The links carry no date: the portal serves the latest run at a fixed address per area and forecast hour (`COAMPS-NCOM/WAVELET/<id>/coamps_ncom.<id>.<tau>.wvl` for regional, `ESPC-D/WAVELET/<id>/espc-d_hycom_glb_<id>_t<tau>.wvl` for global). The area list is a snapshot of the FNMOC page. To update it when areas are added or removed:
 
 1. Open the Sub Support page in a CAC browser session and save it (File > Save Page As, "Webpage, HTML only").
 2. `python3 tools/parse_nop.py ~/Downloads/NOP_sub_support.html > data/areas.json`

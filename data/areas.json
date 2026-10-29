@@ -17,7 +17,6 @@
    "east": -65.0,
    "lat_text": "25.00 N/34.00 N",
    "lon_text": "82.00 W/65.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -83,7 +82,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/bermuda_u/coamps_ncom.bermuda_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "bermuda3_u",
@@ -100,7 +100,6 @@
    "east": -65.0,
    "lat_text": "25.00 N/34.00 N",
    "lon_text": "82.00 W/65.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -166,7 +165,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/bermuda3_u/coamps_ncom.bermuda3_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "CTF84WEST_u",
@@ -183,7 +183,6 @@
    "east": -65.0,
    "lat_text": "22.00 N/40.00 N",
    "lon_text": "82.00 W/65.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -249,7 +248,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/CTF84WEST_u/coamps_ncom.CTF84WEST_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "jax_u",
@@ -266,7 +266,6 @@
    "east": -73.0,
    "lat_text": "26.00 N/33.00 N",
    "lon_text": "81.50 W/73.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -332,7 +331,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/jax_u/coamps_ncom.jax_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "onslow_u",
@@ -349,7 +349,6 @@
    "east": -73.0,
    "lat_text": "29.00 N/38.00 N",
    "lon_text": "82.00 W/73.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -415,7 +414,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/onslow_u/coamps_ncom.onslow_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "useast3_u",
@@ -432,7 +432,6 @@
    "east": -65.0,
    "lat_text": "22.00 N/40.00 N",
    "lon_text": "82.00 W/65.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -498,7 +497,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/useast3_u/coamps_ncom.useast3_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "useastv_u",
@@ -515,7 +515,6 @@
    "east": -65.0,
    "lat_text": "22.00 N/40.00 N",
    "lon_text": "82.00 W/65.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -581,7 +580,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/useastv_u/coamps_ncom.useastv_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "vacapes_u",
@@ -598,7 +598,6 @@
    "east": -70.0,
    "lat_text": "33.00 N/38.00 N",
    "lon_text": "79.75 W/70.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -664,7 +663,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/vacapes_u/coamps_ncom.vacapes_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "vacapes2_u",
@@ -681,7 +681,6 @@
    "east": -70.0,
    "lat_text": "33.00 N/38.00 N",
    "lon_text": "79.75 W/70.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -747,7 +746,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/vacapes2_u/coamps_ncom.vacapes2_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "useast_u",
@@ -764,7 +764,6 @@
    "east": -63.9,
    "lat_text": "20.00 N/42.10 N",
    "lon_text": "82.00 W/63.90 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 3,
@@ -894,7 +893,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/useast_u/coamps_ncom.useast_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "onslowbay2",
@@ -911,7 +911,6 @@
    "east": -72.0,
    "lat_text": "30.00 N/36.00 N",
    "lon_text": "82.00 W/72.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -977,7 +976,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/onslowbay2/coamps_ncom.onslowbay2.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "sargasso_u",
@@ -994,7 +994,6 @@
    "east": -65.0,
    "lat_text": "22.00 N/32.00 N",
    "lon_text": "75.00 W/65.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 3,
@@ -1124,7 +1123,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/sargasso_u/coamps_ncom.sargasso_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "gomex3",
@@ -1141,7 +1141,6 @@
    "east": -81.0,
    "lat_text": "18.00 N/30.50 N",
    "lon_text": "98.00 W/81.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -1207,7 +1206,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/gomex3/coamps_ncom.gomex3.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "useast4",
@@ -1224,7 +1224,6 @@
    "east": -64.0,
    "lat_text": "20.00 N/42.00 N",
    "lon_text": "82.00 W/64.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -1290,7 +1289,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/useast4/coamps_ncom.useast4.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "midlant2",
@@ -1307,7 +1307,6 @@
    "east": -64.0,
    "lat_text": "36.00 N/42.00 N",
    "lon_text": "76.00 W/64.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -1373,7 +1372,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/midlant2/coamps_ncom.midlant2.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "swlant2",
@@ -1390,7 +1390,6 @@
    "east": -73.0,
    "lat_text": "25.00 N/35.50 N",
    "lon_text": "81.50 W/73.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -1456,7 +1455,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/swlant2/coamps_ncom.swlant2.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "bermuda2",
@@ -1473,7 +1473,6 @@
    "east": -65.0,
    "lat_text": "25.00 N/35.50 N",
    "lon_text": "73.50 W/65.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -1539,7 +1538,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/bermuda2/coamps_ncom.bermuda2.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "bsoa",
@@ -1556,7 +1556,6 @@
    "east": -68.5,
    "lat_text": "41.00 N/42.00 N",
    "lon_text": "70.50 W/68.50 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -1622,7 +1621,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/bsoa/coamps_ncom.bsoa.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "nboa",
@@ -1639,7 +1639,6 @@
    "east": -68.5,
    "lat_text": "38.50 N/41.00 N",
    "lon_text": "73.25 W/68.50 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -1705,7 +1704,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/nboa/coamps_ncom.nboa.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "vcoa",
@@ -1722,7 +1722,6 @@
    "east": -72.5,
    "lat_text": "34.00 N/38.75 N",
    "lon_text": "76.00 W/72.50 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -1788,7 +1787,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/vcoa/coamps_ncom.vcoa.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "cpoa",
@@ -1805,7 +1805,6 @@
    "east": -74.0,
    "lat_text": "32.00 N/35.25 N",
    "lon_text": "77.50 W/74.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -1871,7 +1870,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/cpoa/coamps_ncom.cpoa.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "jaxoa",
@@ -1888,7 +1888,6 @@
    "east": -77.0,
    "lat_text": "29.00 N/32.00 N",
    "lon_text": "81.50 W/77.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -1954,7 +1953,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/jaxoa/coamps_ncom.jaxoa.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "pcan",
@@ -1971,7 +1971,6 @@
    "east": -79.0,
    "lat_text": "27.00 N/29.00 N",
    "lon_text": "80.50 W/79.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -2037,7 +2036,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/pcan/coamps_ncom.pcan.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "autec",
@@ -2054,7 +2054,6 @@
    "east": -76.0,
    "lat_text": "23.00 N/25.50 N",
    "lon_text": "78.50 W/76.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -2120,7 +2119,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/autec/coamps_ncom.autec.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "midlant",
@@ -2137,7 +2137,6 @@
    "east": -64.0,
    "lat_text": "36.00 N/42.00 N",
    "lon_text": "76.00 W/64.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -2203,7 +2202,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/midlant/coamps_ncom.midlant.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "jax3",
@@ -2220,7 +2220,6 @@
    "east": -73.0,
    "lat_text": "26.00 N/33.00 N",
    "lon_text": "81.50 W/73.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -2286,7 +2285,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/jax3/coamps_ncom.jax3.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "bermudalg_u",
@@ -2303,7 +2303,6 @@
    "east": -55.0,
    "lat_text": "30.00 N/45.00 N",
    "lon_text": "70.00 W/55.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 3,
@@ -2433,7 +2432,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/bermudalg_u/espc-d_hycom_glb_bermudalg_u_t108.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "wlant5",
@@ -2451,7 +2451,6 @@
    "east": -50.0,
    "lat_text": "0.00 N/70.00 N",
    "lon_text": "100.00 W/50.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -2517,7 +2516,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/wlant5/espc-d_hycom_glb_wlant5_t108.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "westlant4",
@@ -2534,7 +2534,6 @@
    "east": -50.0,
    "lat_text": "18.00 N/45.00 N",
    "lon_text": "80.00 W/50.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -2656,7 +2655,8 @@
      "tau": 180,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/westlant4/espc-d_hycom_glb_westlant4_t192.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "nwlant5",
@@ -2673,7 +2673,6 @@
    "east": -50.0,
    "lat_text": "42.00 N/70.00 N",
    "lon_text": "71.00 W/50.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -2739,7 +2738,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/nwlant5/espc-d_hycom_glb_nwlant5_t108.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "reg14v",
@@ -2757,7 +2757,6 @@
    "east": 30.0,
    "lat_text": "48.00 N/80.00 N",
    "lon_text": "45.00 W/30.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -2823,7 +2822,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/reg14v/espc-d_hycom_glb_reg14v_t108.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "S_Oahu_u",
@@ -2840,7 +2840,6 @@
    "east": -158.06,
    "lat_text": "21.15 N/21.34 N",
    "lon_text": "158.26 W/158.06 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -2906,7 +2905,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/S_Oahu_u/coamps_ncom.S_Oahu_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "S_Oahud2_u",
@@ -2923,7 +2923,6 @@
    "east": -158.06,
    "lat_text": "21.15 N/21.34 N",
    "lon_text": "158.26 W/158.06 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -2989,7 +2988,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/S_Oahud2_u/coamps_ncom.S_Oahud2_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "socal_u",
@@ -3006,7 +3006,6 @@
    "east": -111.08,
    "lat_text": "25.00 N/39.98 N",
    "lon_text": "125.00 W/111.08 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -3072,7 +3071,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/socal_u/coamps_ncom.socal_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "hawaii_u",
@@ -3089,7 +3089,6 @@
    "east": -152.0,
    "lat_text": "15.00 N/29.00 N",
    "lon_text": "166.00 W/152.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 3,
@@ -3219,7 +3218,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/hawaii_u/coamps_ncom.hawaii_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "sandiego_u",
@@ -3236,7 +3236,6 @@
    "east": -116.8,
    "lat_text": "32.00 N/35.00 N",
    "lon_text": "122.00 W/116.80 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 3,
@@ -3334,7 +3333,8 @@
      "tau": 72,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/sandiego_u/coamps_ncom.sandiego_u.072.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "regp06d2",
@@ -3352,7 +3352,6 @@
    "east": -150.0,
    "lat_text": "10.00 N/70.00 N",
    "lon_text": "150.00 E/150.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -3418,7 +3417,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/regp06d2/espc-d_hycom_glb_regp06d2_t108.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "regp07d2",
@@ -3435,7 +3435,6 @@
    "east": -100.0,
    "lat_text": "10.00 N/60.00 N",
    "lon_text": "150.00 W/100.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -3501,7 +3500,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/regp07d2/espc-d_hycom_glb_regp07d2_t108.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "regp06",
@@ -3519,7 +3519,6 @@
    "east": -150.0,
    "lat_text": "10.00 N/70.00 N",
    "lon_text": "150.00 E/150.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -3641,7 +3640,8 @@
      "tau": 180,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/regp06/espc-d_hycom_glb_regp06_t192.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "regp07",
@@ -3658,7 +3658,6 @@
    "east": -100.0,
    "lat_text": "10.00 N/60.00 N",
    "lon_text": "150.00 W/100.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -3780,7 +3779,8 @@
      "tau": 180,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/regp07/espc-d_hycom_glb_regp07_t192.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "hawaii_kbay",
@@ -3797,7 +3797,6 @@
    "east": -154.0,
    "lat_text": "16.00 N/27.00 N",
    "lon_text": "164.00 W/154.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 3,
@@ -3927,7 +3926,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/hawaii_kbay/espc-d_hycom_glb_hawaii_kbay_t108.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "NWBlkSea_u",
@@ -3944,7 +3944,6 @@
    "east": 34.5,
    "lat_text": "41.00 N/47.00 N",
    "lon_text": "28.00 E/34.50 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -4010,7 +4009,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/NWBlkSea_u/coamps_ncom.NWBlkSea_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "med_u",
@@ -4027,7 +4027,6 @@
    "east": 36.6,
    "lat_text": "30.00 N/48.00 N",
    "lon_text": "12.50 W/36.60 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 3,
@@ -4157,7 +4156,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/med_u/coamps_ncom.med_u.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "med_u_east",
@@ -4174,7 +4174,6 @@
    "east": 36.3,
    "lat_text": "30.00 N/42.00 N",
    "lon_text": "22.00 E/36.30 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -4240,7 +4239,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/med_u_east/coamps_ncom.med_u_east.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "Barents",
@@ -4257,7 +4257,6 @@
    "east": 45.0,
    "lat_text": "67.00 N/80.00 N",
    "lon_text": "0.00 E/45.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 3,
@@ -4387,7 +4386,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/Barents/espc-d_hycom_glb_Barents_t108.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "DENMARK_STR",
@@ -4404,7 +4404,6 @@
    "east": -10.0,
    "lat_text": "47.00 N/75.00 N",
    "lon_text": "45.00 W/10.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 3,
@@ -4614,7 +4613,8 @@
      "tau": 156,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/DENMARK_STR/espc-d_hycom_glb_DENMARK_STR_t168.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "WOSTRG_u",
@@ -4631,7 +4631,6 @@
    "east": -5.0,
    "lat_text": "30.00 N/47.00 N",
    "lon_text": "45.00 W/5.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 3,
@@ -4841,7 +4840,8 @@
      "tau": 156,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/WOSTRG_u/espc-d_hycom_glb_WOSTRG_u_t168.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "MAR_full",
@@ -4858,7 +4858,6 @@
    "east": -15.0,
    "lat_text": "40.00 N/60.00 N",
    "lon_text": "45.00 W/15.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -4924,7 +4923,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/MAR_full/espc-d_hycom_glb_MAR_full_t108.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "MAR_d3",
@@ -4941,7 +4941,6 @@
    "east": -15.0,
    "lat_text": "40.00 N/60.00 N",
    "lon_text": "45.00 W/15.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -5007,7 +5006,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/MAR_d3/espc-d_hycom_glb_MAR_d3_t108.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "Svalbard",
@@ -5024,7 +5024,6 @@
    "east": 30.0,
    "lat_text": "66.00 N/78.00 N",
    "lon_text": "10.00 E/30.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -5090,7 +5089,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/Svalbard/espc-d_hycom_glb_Svalbard_t108.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "MAR_d4",
@@ -5107,7 +5107,6 @@
    "east": -15.0,
    "lat_text": "40.00 N/60.00 N",
    "lon_text": "45.00 W/15.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -5173,7 +5172,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/MAR_d4/espc-d_hycom_glb_MAR_d4_t108.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "baltic",
@@ -5190,7 +5190,6 @@
    "east": 19.6,
    "lat_text": "54.40 N/58.00 N",
    "lon_text": "10.65 E/19.60 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -5264,7 +5263,8 @@
      "tau": 108,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/baltic/espc-d_hycom_glb_baltic_t120.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "regp02d5",
@@ -5281,7 +5281,6 @@
    "east": 40.0,
    "lat_text": "30.00 N/70.00 N",
    "lon_text": "50.00 W/40.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -5387,7 +5386,8 @@
      "tau": 156,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/regp02d5/espc-d_hycom_glb_regp02d5_t168.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "regp02d2",
@@ -5404,7 +5404,6 @@
    "east": 40.0,
    "lat_text": "30.00 N/70.00 N",
    "lon_text": "50.00 W/40.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -5510,7 +5509,8 @@
      "tau": 156,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/regp02d2/espc-d_hycom_glb_regp02d2_t168.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "GIUK_std_area",
@@ -5527,7 +5527,6 @@
    "east": 10.0,
    "lat_text": "47.00 N/65.00 N",
    "lon_text": "25.00 W/10.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 3,
@@ -5737,7 +5736,8 @@
      "tau": 156,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/GIUK_std_area/espc-d_hycom_glb_GIUK_std_area_t168.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "elant4",
@@ -5754,7 +5754,6 @@
    "east": -8.0,
    "lat_text": "33.00 N/55.00 N",
    "lon_text": "50.00 W/8.00 W",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -5820,7 +5819,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/elant4/espc-d_hycom_glb_elant4_t108.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "NE_Atlantic_Norwegian_Sea",
@@ -5837,7 +5837,6 @@
    "east": 20.0,
    "lat_text": "60.00 N/80.00 N",
    "lon_text": "20.00 W/20.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 3,
@@ -6047,7 +6046,8 @@
      "tau": 156,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/NE_Atlantic_Norwegian_Sea/espc-d_hycom_glb_NE_Atlantic_Norwegian_Sea_t168.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "etai",
@@ -6064,7 +6064,6 @@
    "east": 128.0,
    "lat_text": "18.00 N/28.00 N",
    "lon_text": "118.00 E/128.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -6130,7 +6129,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/etai/coamps_ncom.etai.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "ecsyokowavelets",
@@ -6147,7 +6147,6 @@
    "east": 130.0,
    "lat_text": "24.00 N/35.00 N",
    "lon_text": "119.00 E/130.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -6213,7 +6212,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/ecsyokowavelets/coamps_ncom.ecsyokowavelets.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "nphils",
@@ -6230,7 +6230,6 @@
    "east": 127.0,
    "lat_text": "10.00 N/17.00 N",
    "lon_text": "120.00 E/127.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -6296,7 +6295,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/nphils/coamps_ncom.nphils.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "ryukyu2",
@@ -6313,7 +6313,6 @@
    "east": 126.0,
    "lat_text": "26.25 N/27.75 N",
    "lon_text": "124.25 E/126.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -6363,7 +6362,8 @@
      "tau": 72,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/ryukyu2/coamps_ncom.ryukyu2.072.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "soj",
@@ -6380,7 +6380,6 @@
    "east": 142.0,
    "lat_text": "33.00 N/46.00 N",
    "lon_text": "127.00 E/142.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -6446,7 +6445,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/soj/coamps_ncom.soj.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "sjapan",
@@ -6463,7 +6463,6 @@
    "east": 143.5,
    "lat_text": "21.00 N/36.00 N",
    "lon_text": "128.50 E/143.50 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -6529,7 +6528,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/sjapan/coamps_ncom.sjapan.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "java_u",
@@ -6546,7 +6546,6 @@
    "east": 120.0,
    "lat_text": "11.00 S/1.00 N",
    "lon_text": "100.00 E/120.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -6564,7 +6563,8 @@
      "tau": 24,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/java_u/coamps_ncom.java_u.024.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "guam_u",
@@ -6581,7 +6581,6 @@
    "east": 157.1,
    "lat_text": "5.00 N/18.10 N",
    "lon_text": "136.00 E/157.10 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -6615,7 +6614,8 @@
      "tau": 48,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/guam_u/coamps_ncom.guam_u.048.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "wpac_u4",
@@ -6632,7 +6632,6 @@
    "east": 147.99,
    "lat_text": "7.00 N/52.93 N",
    "lon_text": "105.00 E/147.99 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -6698,7 +6697,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/COAMPS-NCOM/WAVELET/wpac_u4/coamps_ncom.wpac_u4.096.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "regp05d2",
@@ -6715,7 +6715,6 @@
    "east": 150.0,
    "lat_text": "10.00 S/60.00 N",
    "lon_text": "100.00 E/150.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -6781,7 +6780,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/regp05d2/espc-d_hycom_glb_regp05d2_t108.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "nwpac_wvl",
@@ -6798,7 +6798,6 @@
    "east": 170.0,
    "lat_text": "46.00 N/57.00 N",
    "lon_text": "154.00 E/170.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -6864,7 +6863,8 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/nwpac_wvl/espc-d_hycom_glb_nwpac_wvl_t108.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "regp05",
@@ -6881,7 +6881,6 @@
    "east": 150.0,
    "lat_text": "10.00 S/60.00 N",
    "lon_text": "100.00 E/150.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 6,
@@ -7003,7 +7002,8 @@
      "tau": 180,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/regp05/espc-d_hycom_glb_regp05_t192.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   },
   {
    "id": "talisman_saber",
@@ -7020,7 +7020,6 @@
    "east": 165.0,
    "lat_text": "34.00 S/12.00 N",
    "lon_text": "109.00 E/165.00 E",
-   "date": "Oct 28",
    "hours": [
     {
      "tau": 3,
@@ -7150,7 +7149,13 @@
      "tau": 96,
      "url": "https://portal.fnmoc.navy.mil/ocean_products/html/ESPC-D/WAVELET/talisman_saber/espc-d_hycom_glb_talisman_saber_t108.wvl"
     }
-   ]
+   ],
+   "verified": "2026-10-28"
   }
- ]
+ ],
+ "patterns": {
+  "R": "COAMPS-NCOM/WAVELET/<id>/coamps_ncom.<id>.<tau>.wvl",
+  "G": "ESPC-D/WAVELET/<id>/espc-d_hycom_glb_<id>_t<tau>.wvl"
+ },
+ "verified_note": "Links checked through a CAC session on 2026-10-28: first and last forecast hour of every area returned HTTP 200. The addresses carry no date; the portal serves the latest run."
 }
