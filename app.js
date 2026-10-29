@@ -7,6 +7,7 @@
   const gratG = document.getElementById('grat');
   const landP = document.getElementById('land');
   const tip = document.getElementById('tip');
+  const cur = document.getElementById('cursor');
   const list = document.getElementById('list');
   const panelTitle = document.getElementById('panel-title');
   const panelSub = document.getElementById('panel-sub');
@@ -338,9 +339,11 @@
       if (Math.abs(e.clientX - drag.x) + Math.abs(e.clientY - drag.y) > 5) moved = true;
       vb = { ...drag.vb, x: drag.vb.x - dx, y: drag.vb.y - dy };
       applyVB(); closePop();
+      showCursor(e, toMap(e.clientX, e.clientY));
       return;
     }
     const p = toMap(e.clientX, e.clientY);
+    showCursor(e, p);
     const hits = areas.filter(a => visible(a) && contains(a, p.lon, p.lat)).sort((x, y) => areaDeg(x) - areaDeg(y));
     if (hits.length) {
       const a = hits[0];
@@ -359,7 +362,20 @@
     if (drag && !moved) { const p = toMap(e.clientX, e.clientY); showAt(p.lon, p.lat); showPop(e.clientX, e.clientY, p.lon, p.lat); }
     drag = null;
   });
-  svg.addEventListener('pointerleave', () => { setHover([]); tip.hidden = true; });
+  svg.addEventListener('pointerleave', () => { setHover([]); tip.hidden = true; cur.hidden = true; });
+  function fmtLL(lat, lon) {
+    const la = Math.abs(lat).toFixed(1) + (lat < 0 ? 'S' : 'N');
+    const lo = Math.abs(lon).toFixed(1) + (lon < 0 ? 'W' : 'E');
+    return la + '  ' + lo;
+  }
+  function showCursor(e, p) {
+    if (p.lat > 90 || p.lat < -90) { cur.hidden = true; return; }
+    cur.hidden = false;
+    cur.textContent = fmtLL(p.lat, p.lon);
+    const wr = svg.parentElement.getBoundingClientRect();
+    cur.style.left = Math.max(0, Math.min(e.clientX - wr.left + 14, wr.width - 110)) + 'px';
+    cur.style.top = Math.max(0, e.clientY - wr.top - 22) + 'px';
+  }
   svg.addEventListener('wheel', e => {
     e.preventDefault();
     const p = toMap(e.clientX, e.clientY);

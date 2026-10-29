@@ -55,6 +55,7 @@ a { color: var(--cyan); }
 .box.sel { stroke-width: 2.5; stroke: var(--ink); fill: rgba(var(--box-g),.18); }
 .tip { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font: 12px var(--mono); color: var(--ink); max-width: 320px; }
 .tip small { color: var(--muted); display: block; }
+.cursor { position: absolute; pointer-events: none; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 2px 6px; font: 11px var(--mono); color: var(--muted); white-space: nowrap; opacity: .9; }
 .map-hint { position: absolute; left: 12px; bottom: 10px; font: 12px var(--mono); color: var(--dim); background: var(--bg2); padding: 4px 8px; border-radius: 6px; }
 .zoom { position: absolute; right: 12px; top: 12px; display: flex; flex-direction: column; gap: 6px; }
 .zoom button { border-radius: 8px; width: 34px; height: 34px; padding: 0; font-size: 16px; background: var(--bg2); }
